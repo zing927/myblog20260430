@@ -54,7 +54,7 @@ const Home = () => (
   >
     <div className="max-w-4xl w-full">
       <h2 className="text-4xl md:text-6xl font-medium mb-6 text-custom-primary tracking-widest leading-[1.1]">
-        在AI时代，<br/>持续探索个人增长的X因素
+        在AI时代<br/>持续探索个人增长的X因素
       </h2>
       <p className="text-lg md:text-xl text-custom-secondary mb-10 max-w-2xl mx-auto leading-relaxed font-light opacity-90">
         我是Zing，10年Aiot产品体验设计师，现居杭州。在这里，记录关于产品体验、个人增长、LifeOS构建的底层逻辑，实践感受。
@@ -209,7 +209,7 @@ export default function App() {
       </nav>
 
       {/* Content */}
-      <main className={`flex-grow pt-20 flex flex-col relative z-10 ${activeTab === 'home' ? 'h-screen' : ''}`}>
+      <main className={`flex-grow pt-20 pb-20 flex flex-col relative z-10 ${activeTab === 'home' ? 'h-screen' : ''}`}>
         <AnimatePresence mode="wait">
           {activeTab === 'home' && <Home key="home" />}
           {activeTab === 'now' && <WhatImDoing key="now" />}
@@ -217,7 +217,7 @@ export default function App() {
       </main>
 
       {/* Footer */}
-      <footer className={`${activeTab === 'home' ? 'py-10' : 'py-20'} text-center transition-all`}>
+      <footer className="fixed bottom-0 left-0 right-0 py-8 text-center z-40 pointer-events-none">
         <div className="max-w-5xl mx-auto px-6">
           <p className="text-custom-secondary text-[10px] font-medium opacity-30 uppercase tracking-[0.4em]">
             © 2026 Zing • Build to Grow • LifeOS
