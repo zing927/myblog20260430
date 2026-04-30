@@ -8,11 +8,14 @@
   --font-mono: "JetBrains Mono", monospace;
   
   --color-apple-blue: #0066CC;
+  
+  --shadow-soft: 0 8px 30px rgba(0, 0, 0, 0.12);
+  --shadow-card: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
 }
 
 @layer base {
   body {
-    @apply font-sans antialiased selection:bg-apple-blue/20 transition-colors duration-500;
+    @apply font-sans antialiased selection:bg-apple-blue/20 transition-colors duration-500 bg-black text-white;
   }
 }
 
