@@ -50,13 +50,13 @@ const Home = () => (
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
     exit={{ opacity: 0, y: -20 }}
-    className="flex-grow flex flex-col justify-center items-center text-center px-6 max-w-5xl mx-auto py-8"
+    className="flex-grow flex flex-col justify-center items-center text-center px-4 md:px-6 max-w-5xl mx-auto py-12 md:py-8"
   >
     <div className="max-w-4xl w-full">
-      <h2 className="text-4xl md:text-6xl font-medium mb-6 text-custom-primary tracking-widest leading-[1.1]">
+      <h2 className="text-3xl md:text-6xl font-medium mb-6 text-custom-primary tracking-widest leading-[1.2] md:leading-[1.1]">
         在AI时代<br/>持续探索个人增长的X因素
       </h2>
-      <p className="text-lg md:text-xl text-custom-secondary mb-10 max-w-2xl mx-auto leading-relaxed font-light opacity-90">
+      <p className="text-base md:text-xl text-custom-secondary mb-10 max-w-2xl mx-auto leading-relaxed font-light opacity-90">
         我是Zing，10年Aiot产品体验设计师，现居杭州。在这里，记录关于产品体验、个人增长、LifeOS构建的底层逻辑，实践感受。
       </p>
       
@@ -127,35 +127,35 @@ const WhatImDoing = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="max-w-4xl mx-auto px-6 py-10"
+      className="max-w-4xl mx-auto px-4 md:px-6 py-10 md:py-20"
     >
-      <header className="mb-10">
-        <h2 className="text-3xl font-medium mb-4 text-custom-primary tracking-tight leading-tight">我正在做的事</h2>
-        <p className="text-custom-secondary text-base font-light opacity-80 leading-relaxed max-w-xl">
+      <header className="mb-10 text-center md:text-left">
+        <h2 className="text-2xl md:text-3xl font-medium mb-4 text-custom-primary tracking-tight leading-tight">我正在做的事</h2>
+        <p className="text-custom-secondary text-sm md:text-base font-light opacity-80 leading-relaxed max-w-xl mx-auto md:mx-0">
           我认为正确的事：阅读、写作、运动、创造、分享。
         </p>
       </header>
-      <div className="grid grid-cols-1 gap-4">
+      <div className="grid grid-cols-1 gap-4 md:gap-6">
         {items.map((item, index) => (
           <motion.div 
             key={item.id}
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.08, duration: 0.4 }}
-            className={`flex flex-col md:flex-row gap-6 items-start p-6 rounded-xl bg-white/[0.03] backdrop-blur-2xl transition-all duration-300 hover:bg-white/[0.08] group overflow-hidden relative ${item.href ? 'cursor-pointer shadow-xl hover:shadow-accent/5' : ''}`}
+            className={`flex flex-col md:flex-row gap-4 md:gap-6 items-start p-5 md:p-6 rounded-xl bg-white/[0.03] backdrop-blur-2xl transition-all duration-300 hover:bg-white/[0.08] group overflow-hidden relative ${item.href ? 'cursor-pointer shadow-xl hover:shadow-accent/5' : ''}`}
             onClick={() => item.href && window.open(item.href, '_blank')}
           >
-            <div className="p-4 rounded-lg bg-white/5 shadow-sm flex-shrink-0 text-custom-secondary group-hover:text-accent transition-all">
+            <div className="p-3 md:p-4 rounded-lg bg-white/5 shadow-sm flex-shrink-0 text-custom-secondary group-hover:text-accent transition-all">
               {item.icon}
             </div>
-            <div className="flex-grow pt-1">
+            <div className="flex-grow pt-1 w-full">
               <div className="flex items-center justify-between mb-2">
-                <h3 className="text-xl font-medium text-custom-primary group-hover:text-accent transition-colors">
+                <h3 className="text-lg md:text-xl font-medium text-custom-primary group-hover:text-accent transition-colors">
                   {item.title}
                 </h3>
                 {item.href && <ArrowRight size={18} className="text-accent opacity-0 group-hover:opacity-100 -translate-x-3 group-hover:translate-x-0 transition-all font-bold" />}
               </div>
-              <p className="text-base text-custom-secondary leading-relaxed opacity-90">{item.desc}</p>
+              <p className="text-sm md:text-base text-custom-secondary leading-relaxed opacity-90">{item.desc}</p>
             </div>
           </motion.div>
         ))}
@@ -179,16 +179,16 @@ export default function App() {
     <div className="min-h-screen text-custom-primary selection:bg-accent/20 bg-custom-primary relative overflow-hidden flex flex-col">
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-custom-primary/80 backdrop-blur-2xl">
-        <div className="max-w-6xl mx-auto px-8 h-20 flex items-center justify-between relative z-10">
+        <div className="max-w-6xl mx-auto px-4 md:px-8 h-20 flex items-center justify-between relative z-10">
           <div 
-            className="text-3xl font-handwriting tracking-wide cursor-pointer hover:text-accent transition-colors" 
+            className="text-2xl md:text-3xl font-handwriting tracking-wide cursor-pointer hover:text-accent transition-colors" 
             onClick={() => setActiveTab('home')}
           >
             Zing's Openlife
           </div>
           
-          <div className="flex items-center gap-6 md:gap-10">
-            <div className="flex gap-6 md:gap-10 transition-all">
+          <div className="flex items-center gap-4 md:gap-10">
+            <div className="flex gap-4 md:gap-10 transition-all">
               {navItems.map((item) => (
                 <button 
                   key={item.id}
@@ -209,7 +209,7 @@ export default function App() {
       </nav>
 
       {/* Content */}
-      <main className={`flex-grow pt-20 pb-20 flex flex-col relative z-10 ${activeTab === 'home' ? 'h-screen' : ''}`}>
+      <main className={`flex-grow pt-20 pb-24 md:pb-20 flex flex-col relative z-10 ${activeTab === 'home' ? 'min-h-[calc(100vh-80px)]' : ''}`}>
         <AnimatePresence mode="wait">
           {activeTab === 'home' && <Home key="home" />}
           {activeTab === 'now' && <WhatImDoing key="now" />}
