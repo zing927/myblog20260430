@@ -318,7 +318,7 @@ export default function App() {
                 >
                   {item.label}
                   {activeTab === item.id && (
-                    <motion.div layoutId="nav-underline" className="absolute -bottom-1 left-0 right-0 h-1 bg-accent rounded-full" />
+                    <motion.div layoutId="nav-underline" className="absolute -bottom-1 left-0 right-0 h-1 bg-white rounded-full" />
                   )}
                 </button>
               ))}
