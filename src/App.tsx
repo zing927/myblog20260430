@@ -6,9 +6,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
-  Github, 
-  Mail, 
-  Twitter, 
   ArrowRight, 
   Monitor, 
   BookOpen, 
@@ -19,7 +16,8 @@ import {
   FileText,
   DollarSign,
   PlayCircle,
-  Check
+  Check,
+  MessageSquare
 } from 'lucide-react';
 
 // --- Components ---
@@ -34,36 +32,24 @@ const Home = () => (
     <h2 className="text-3xl md:text-4xl font-bold mb-6 text-custom-primary font-display tracking-tight">
       沉淀十载 SaaS 体验设计，<br/>于 AI 时代重塑成长。
     </h2>
-    <p className="text-lg md:text-xl text-custom-secondary mb-4 max-w-2xl leading-relaxed font-light">
+    <p className="text-lg md:text-xl text-custom-secondary mb-10 max-w-2xl leading-relaxed font-light">
       我是 Zing。在这里，我记录关于 LifeOS 的构建、个人增长的底层逻辑，以及如何利用 AI 探索“小而美”的产品可能。
-    </p>
-    <p className="text-sm md:text-base text-custom-secondary/40 mb-10 font-medium tracking-widest flex items-center gap-3">
-      <span>设计学硕士</span>
-      <span className="w-1.5 h-1.5 rounded-full bg-accent/20"></span>
-      <span>5年团队管理</span>
-      <span className="w-1.5 h-1.5 rounded-full bg-accent/20"></span>
-      <span>湖南工学院外聘教师</span>
     </p>
     
     <div className="flex flex-wrap justify-center gap-4 mb-12">
-      {[
-        { icon: <Mail size={24} />, href: "mailto:zhengjing927@gmail.com" },
-        { icon: <Twitter size={24} />, href: "https://twitter.com" },
-        { icon: <Github size={24} />, href: "https://github.com" }
-      ].map((social, i) => (
-        <a key={i} href={social.href} className="p-3 rounded-full bg-custom-secondary hover:bg-custom-primary border border-transparent hover:border-custom transition-all text-custom-secondary hover:text-custom-primary">
-          {social.icon}
-        </a>
-      ))}
+      <div className="flex items-center gap-3 px-6 py-3 rounded-full bg-custom-secondary border border-custom text-custom-secondary hover:text-custom-primary transition-all">
+        <MessageSquare size={20} />
+        <span className="font-medium tracking-wide">微信：zing927</span>
+      </div>
     </div>
     
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-3xl">
       {[
-        { label: "《无限自然》", type: "Newsletter", icon: <Zap size={24} /> },
-        { label: "个人增长 X 因素", type: "知识库", icon: <BookOpen size={24} /> },
-        { label: "AI 时代的设计师", type: "知识库", icon: <Monitor size={24} /> }
+        { label: "《无限自然》", type: "Newsletter", icon: <Zap size={24} />, href: "https://quaily.com/zing927" },
+        { label: "个人增长 X 因素", type: "知识库", icon: <BookOpen size={24} />, href: "https://flowus.cn/share/aa202f8a-14a7-4429-a5a8-2b459a4de181?code=U4N4HU" },
+        { label: "AI 时代的设计师", type: "知识库", icon: <Monitor size={24} />, href: "https://flowus.cn/zing/share/614d3b88-98e4-476a-9282-44500b47ea9f?code=U4N4HU" }
       ].map((link, i) => (
-        <a key={i} href="#" className="flex flex-col items-center p-6 rounded-2xl bg-custom-secondary hover:bg-custom-primary hover:shadow-2xl transition-all border border-custom group">
+        <a key={i} href={link.href} target="_blank" rel="noreferrer" className="flex flex-col items-center p-6 rounded-2xl bg-custom-secondary hover:bg-custom-primary hover:shadow-2xl transition-all border border-custom group">
           <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform bg-custom-primary text-custom-primary border border-custom shadow-sm">
             {link.icon}
           </div>
@@ -82,21 +68,24 @@ const WhatImDoing = () => {
       title: "Newsletter《无限自然》",
       icon: <Zap size={22} />,
       desc: "分享最近 7 天值得分享的内容，关注个人成长、产品设计、AI 提效、商业。",
-      meta: "目前 61 期，阅读量 50 万+"
+      meta: "目前 61 期，阅读量 50 万+",
+      href: "https://quaily.com/zing927"
     },
     {
       id: 2,
       title: "知识库《AI 时代的 Designer》",
       icon: <Monitor size={22} />,
       desc: "AI 时代 product、设计、开发岗位能力压缩，设计师该如何成为 'product owner'，分享实践经验。",
-      meta: "公开分享我的转变与经验"
+      meta: "公开分享我的转变与经验",
+      href: "https://flowus.cn/zing/share/614d3b88-98e4-476a-9282-44500b47ea9f?code=U4N4HU"
     },
     {
       id: 3,
       title: "知识库《探索个人增长的 X 因素》",
       icon: <BookOpen size={22} />,
       desc: "分享优质信息源、精读内容、学习资源、工具。专注个人能力的复利增长。",
-      meta: "目前已有 40+ 付费订阅"
+      meta: "目前已有 40+ 付费订阅",
+      href: "https://flowus.cn/share/aa202f8a-14a7-4429-a5a8-2b459a4de181?code=U4N4HU"
     },
     {
       id: 4,
@@ -122,7 +111,8 @@ const WhatImDoing = () => {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: index * 0.1 }}
-            className="flex gap-6 items-start p-8 rounded-3xl bg-custom-secondary border border-custom transition-all duration-300 hover:shadow-soft group"
+            className={`flex gap-6 items-start p-8 rounded-3xl bg-custom-secondary border border-custom transition-all duration-300 hover:shadow-soft group ${item.href ? 'cursor-pointer hover:border-accent/40' : ''}`}
+            onClick={() => item.href && window.open(item.href, '_blank')}
           >
             <div className="p-4 rounded-2xl bg-custom-primary shadow-sm flex-shrink-0 border border-custom text-custom-secondary group-hover:text-custom-primary transition-colors">
               {item.icon}
