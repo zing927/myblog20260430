@@ -132,7 +132,7 @@ const WhatImDoing = () => {
       <header className="mb-10">
         <h2 className="text-3xl font-medium mb-4 text-custom-primary tracking-tight leading-tight">我正在做的事</h2>
         <p className="text-custom-secondary text-base font-light opacity-80 leading-relaxed max-w-xl">
-          我认为正确的事：阅读、写作、运动、创造、分享。<br/>聚焦于能产生复利增长的底层逻辑。
+          我认为正确的事：阅读、写作、运动、创造、分享。
         </p>
       </header>
       <div className="grid grid-cols-1 gap-4">
