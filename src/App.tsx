@@ -6,6 +6,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
+  Twitter,
   ArrowRight, 
   Monitor, 
   BookOpen, 
@@ -134,35 +135,80 @@ const WhatImDoing = () => {
   );
 };
 
-const YoutuReadApp = () => (
-  <motion.div 
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 1 }}
-    exit={{ opacity: 0 }}
-    className="max-w-5xl mx-auto px-6 py-20"
-  >
-    {/* Hero Section */}
-    <section className="text-center mb-24 py-16 bg-custom-secondary rounded-[40px] px-8 border border-custom shadow-inner">
-      <motion.div
-        initial={{ scale: 0.95, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 0.5 }}
-      >
-        <span className="inline-block px-4 py-1.5 bg-custom-primary text-custom-primary border border-custom text-xs font-bold tracking-widest uppercase rounded-full mb-6">
-          Beta 现已发布
-        </span>
-        <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6 text-custom-primary font-display">
-          YouTube 视频<br/><span className="text-accent">一键变图文笔记</span>
-        </h1>
-        <p className="text-xl md:text-2xl text-custom-secondary mb-10 max-w-2xl mx-auto leading-relaxed">
-          别再盯着进度条了。用 DeepSeek 把视频转成带图的 Markdown 笔记，支持自定义 Prompt。
-        </p>
-        <button className="px-8 py-4 bg-custom-primary text-custom-primary border border-custom rounded-full font-semibold transition-all flex items-center gap-2 mx-auto shadow-lg hover:bg-accent hover:text-white hover:border-accent active:scale-95 group">
-          <Download size={20} className="group-hover:-translate-y-1 transition-transform" />
-          立即下载插件
-        </button>
-      </motion.div>
-    </section>
+const YoutuReadApp = () => {
+  const [showContactModal, setShowContactModal] = useState(false);
+
+  return (
+    <motion.div 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="max-w-5xl mx-auto px-6 py-20"
+    >
+      {/* Hero Section */}
+      <section className="text-center mb-24 py-16 bg-custom-secondary rounded-[40px] px-8 border border-custom shadow-inner">
+        <motion.div
+          initial={{ scale: 0.95, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          <span className="inline-block px-4 py-1.5 bg-custom-primary text-custom-primary border border-custom text-xs font-bold tracking-widest uppercase rounded-full mb-6">
+            Beta 现已发布
+          </span>
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6 text-custom-primary font-display">
+            YouTube 视频<br/><span className="text-accent">一键变图文笔记</span>
+          </h1>
+          <p className="text-xl md:text-2xl text-custom-secondary mb-10 max-w-2xl mx-auto leading-relaxed">
+            别再盯着进度条了。用 DeepSeek 把视频转成带图的 Markdown 笔记，支持自定义 Prompt。
+          </p>
+          <button 
+            onClick={() => setShowContactModal(true)}
+            className="px-8 py-4 bg-custom-primary text-custom-primary border border-custom rounded-full font-semibold transition-all flex items-center gap-2 mx-auto shadow-lg hover:bg-accent hover:text-white hover:border-accent active:scale-95 group"
+          >
+            <Download size={20} className="group-hover:-translate-y-1 transition-transform" />
+            立即下载插件
+          </button>
+        </motion.div>
+      </section>
+
+      {/* Contact Modal */}
+      <AnimatePresence>
+        {showContactModal && (
+          <div className="fixed inset-0 z-[100] flex items-center justify-center p-6">
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setShowContactModal(false)}
+              className="absolute inset-0 bg-black/80 backdrop-blur-sm"
+            />
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              className="relative w-full max-w-md bg-custom-secondary border border-custom p-8 rounded-3xl shadow-2xl text-center"
+            >
+              <div className="w-16 h-16 bg-accent/10 text-accent rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <MessageSquare size={32} />
+              </div>
+              <h3 className="text-2xl font-bold text-custom-primary mb-2">联系作者下载</h3>
+              <p className="text-custom-secondary mb-8 leading-relaxed">
+                目前插件处于内测阶段，请添加作者微信并备注「插件内测」以获取下载链接。
+              </p>
+              <div className="bg-custom-primary border border-custom p-4 rounded-2xl mb-8">
+                <label className="text-[10px] uppercase tracking-widest text-custom-secondary block mb-1">WeChat ID</label>
+                <span className="text-xl font-bold text-custom-primary font-mono">zing927</span>
+              </div>
+              <button 
+                onClick={() => setShowContactModal(false)}
+                className="w-full py-4 bg-custom-primary border border-custom text-custom-primary rounded-xl font-bold hover:bg-custom-secondary transition-colors"
+              >
+                我知道了
+              </button>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
 
     {/* Features */}
     <section className="mb-32">
@@ -233,7 +279,8 @@ const YoutuReadApp = () => (
       </div>
     </section>
   </motion.div>
-);
+  );
+};
 
 // --- Main Layout ---
 
