@@ -104,7 +104,8 @@ const WhatImDoing = () => {
       exit={{ opacity: 0 }}
       className="max-w-4xl mx-auto px-6 py-20"
     >
-      <h2 className="text-3xl font-bold mb-10 text-custom-primary font-display">我正在做的事</h2>
+      <h2 className="text-3xl font-bold mb-4 text-custom-primary font-display">我正在做的事</h2>
+      <p className="text-custom-secondary mb-12 font-medium opacity-60 tracking-wide">我认为正确的事：阅读、写作、运动、创造、分享</p>
       <div className="space-y-8">
         {items.map((item, index) => (
           <motion.div 
