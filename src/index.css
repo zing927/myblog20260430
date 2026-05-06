@@ -22,15 +22,15 @@
   }
 }
 
-/* Theme Definitions - Deep Space (Dark) as default */
+/* Theme Definitions - Apple-style Light Theme to match provide background image */
 :root {
-  --bg-primary: #000000;
-  --bg-secondary: #161617;
-  --text-primary: #F5F5F7;
+  --bg-primary: #FBFBFB;
+  --bg-secondary: #F5F5F7;
+  --text-primary: #1D1D1F;
   --text-secondary: #86868B;
-  --accent: #0A84FF;
-  --border: rgba(255, 255, 255, 0.05);
-  --card-shadow: 0 4px 24px -4px rgba(0,0,0,0.4);
+  --accent: #0071E3;
+  --border: rgba(0, 0, 0, 0.05);
+  --card-shadow: 0 4px 24px -4px rgba(0,0,0,0.05);
 }
 
 .bg-custom-primary { background-color: var(--bg-primary); }
@@ -43,3 +43,21 @@
 
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+.bg-noise {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+.bg-grid {
+  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.bg-abstract-gradient {
+  background: 
+    linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%),
+    radial-gradient(at 10% 20%, rgba(10, 132, 255, 0.15) 0px, transparent 50%),
+    radial-gradient(at 80% 50%, rgba(10, 132, 255, 0.1) 0px, transparent 50%),
+    radial-gradient(at 40% 90%, rgba(10, 132, 255, 0.12) 0px, transparent 50%);
+  background-blend-mode: soft-light;
+}

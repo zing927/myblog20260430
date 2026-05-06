@@ -61,7 +61,7 @@ const Home = () => (
       </p>
       
       <div className="flex flex-wrap justify-center gap-4 mb-12">
-        <div className="flex items-center gap-3 px-6 py-3 rounded-xl bg-white/5 backdrop-blur-xl text-custom-secondary hover:text-custom-primary transition-all shadow-sm hover:shadow-md cursor-default">
+        <div className="flex items-center gap-3 px-6 py-3 rounded-xl bg-black/5 backdrop-blur-xl text-custom-secondary hover:text-custom-primary transition-all shadow-sm hover:shadow-md cursor-default">
           <MessageCircle size={18} className="text-accent" />
           <span className="font-medium tracking-wide text-sm opacity-80">微信：zing927</span>
         </div>
@@ -73,8 +73,8 @@ const Home = () => (
           { label: "个人增长 X 因素", type: "知识库", icon: <BookOpen size={20} />, href: "https://flowus.cn/share/aa202f8a-14a7-4429-a5a8-2b459a4de181?code=U4N4HU" },
           { label: "AI 时代的设计师", type: "知识库", icon: <Monitor size={20} />, href: "https://flowus.cn/zing/share/614d3b88-98e4-476a-9282-44500b47ea9f?code=U4N4HU" }
         ].map((link, i) => (
-          <a key={i} href={link.href} target="_blank" rel="noreferrer" className="flex flex-col items-center p-6 rounded-2xl bg-white/[0.03] backdrop-blur-xl hover:bg-white/[0.08] hover:shadow-2xl transition-all group overflow-hidden relative">
-            <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform bg-white/5 text-custom-primary shadow-sm">
+          <a key={i} href={link.href} target="_blank" rel="noreferrer" className="flex flex-col items-center p-6 rounded-2xl bg-black/[0.02] backdrop-blur-xl border border-black/[0.03] hover:bg-black/[0.05] hover:shadow-xl transition-all group overflow-hidden relative">
+            <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform bg-black/5 text-custom-primary shadow-sm">
               {link.icon}
             </div>
             <span className="font-medium text-base text-custom-primary mb-1 group-hover:text-accent transition-colors">{link.label}</span>
@@ -142,10 +142,10 @@ const WhatImDoing = () => {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.08, duration: 0.4 }}
-            className={`flex flex-col md:flex-row gap-4 md:gap-6 items-start p-5 md:p-6 rounded-xl bg-white/[0.03] backdrop-blur-2xl transition-all duration-300 hover:bg-white/[0.08] group overflow-hidden relative ${item.href ? 'cursor-pointer shadow-xl hover:shadow-accent/5' : ''}`}
+            className={`flex flex-col md:flex-row gap-4 md:gap-6 items-start p-5 md:p-6 rounded-xl bg-black/[0.02] backdrop-blur-2xl border border-black/[0.03] transition-all duration-300 hover:bg-black/[0.05] group overflow-hidden relative ${item.href ? 'cursor-pointer shadow-xl hover:shadow-accent/5' : ''}`}
             onClick={() => item.href && window.open(item.href, '_blank')}
           >
-            <div className="p-3 md:p-4 rounded-lg bg-white/5 shadow-sm flex-shrink-0 text-custom-secondary group-hover:text-accent transition-all">
+            <div className="p-3 md:p-4 rounded-lg bg-black/5 shadow-sm flex-shrink-0 text-custom-secondary group-hover:text-accent transition-all">
               {item.icon}
             </div>
             <div className="flex-grow pt-1 w-full">
@@ -177,6 +177,11 @@ export default function App() {
 
   return (
     <div className="min-h-screen text-custom-primary selection:bg-accent/20 bg-custom-primary relative overflow-hidden flex flex-col">
+      {/* Background Textures */}
+      <div className="fixed inset-0 z-0 pointer-events-none opacity-[0.08] bg-noise mix-blend-multiply" />
+      <div className="fixed inset-0 z-0 pointer-events-none bg-abstract-gradient" />
+      <div className="fixed inset-0 z-0 pointer-events-none opacity-40 bg-grid" />
+      
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-custom-primary/80 backdrop-blur-2xl">
         <div className="max-w-6xl mx-auto px-4 md:px-8 h-20 flex items-center justify-between relative z-10">
