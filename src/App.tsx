@@ -70,15 +70,15 @@ const Home = () => (
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
         {[
           { label: "无限自然周刊", type: "Newsletter", icon: <Mail size={20} />, href: "https://quaily.com/zing927" },
-          { label: "个人增长 X 因素", type: "知识库", icon: <BookOpen size={20} />, href: "https://flowus.cn/share/aa202f8a-14a7-4429-a5a8-2b459a4de181?code=U4N4HU" },
+          { label: "个人增长的 X 因素", type: "知识库", icon: <BookOpen size={20} />, href: "https://flowus.cn/share/aa202f8a-14a7-4429-a5a8-2b459a4de181?code=U4N4HU" },
           { label: "AI 时代的设计师", type: "知识库", icon: <Monitor size={20} />, href: "https://flowus.cn/zing/share/614d3b88-98e4-476a-9282-44500b47ea9f?code=U4N4HU" }
         ].map((link, i) => (
-          <a key={i} href={link.href} target="_blank" rel="noreferrer" className="flex flex-col items-center p-6 rounded-2xl bg-black/[0.02] backdrop-blur-xl border border-black/[0.03] hover:bg-black/[0.05] hover:shadow-xl transition-all group overflow-hidden relative">
-            <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform bg-black/5 text-custom-primary shadow-sm">
+          <a key={i} href={link.href} target="_blank" rel="noreferrer" className="flex flex-col items-center p-6 rounded-2xl bg-white/40 backdrop-blur-xl border border-black/[0.03] hover:bg-white/60 hover:shadow-lg hover:shadow-black/5 transition-all duration-500 group overflow-hidden relative">
+            <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform bg-black/5 text-custom-primary shadow-inner">
               {link.icon}
             </div>
             <span className="font-medium text-base text-custom-primary mb-1 group-hover:text-accent transition-colors">{link.label}</span>
-            <span className="text-[10px] tracking-[0.2em] text-custom-secondary font-medium opacity-40">{link.type}</span>
+            <span className="text-sm tracking-widest text-custom-secondary font-medium opacity-60">{link.type}</span>
           </a>
         ))}
       </div>
@@ -127,7 +127,7 @@ const WhatImDoing = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="max-w-4xl mx-auto px-4 md:px-6 py-10 md:py-20"
+      className="max-w-4xl mx-auto px-4 md:px-6 pt-8 md:pt-12 pb-20"
     >
       <header className="mb-10 text-center md:text-left">
         <h2 className="text-2xl md:text-3xl font-medium mb-4 text-custom-primary tracking-tight leading-tight">我正在做的事</h2>
@@ -142,10 +142,10 @@ const WhatImDoing = () => {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.08, duration: 0.4 }}
-            className={`flex flex-col md:flex-row gap-4 md:gap-6 items-start p-5 md:p-6 rounded-xl bg-black/[0.02] backdrop-blur-2xl border border-black/[0.03] transition-all duration-300 hover:bg-black/[0.05] group overflow-hidden relative ${item.href ? 'cursor-pointer shadow-xl hover:shadow-accent/5' : ''}`}
+            className={`flex flex-col md:flex-row gap-4 md:gap-6 items-start p-5 md:p-6 rounded-2xl bg-white/40 backdrop-blur-2xl border border-black/[0.03] transition-all duration-500 hover:bg-white/60 group overflow-hidden relative ${item.href ? 'cursor-pointer hover:shadow-lg hover:shadow-black/5' : ''}`}
             onClick={() => item.href && window.open(item.href, '_blank')}
           >
-            <div className="p-3 md:p-4 rounded-lg bg-black/5 shadow-sm flex-shrink-0 text-custom-secondary group-hover:text-accent transition-all">
+            <div className="p-3 md:p-4 rounded-lg bg-black/5 shadow-inner flex-shrink-0 text-custom-secondary group-hover:text-accent transition-all">
               {item.icon}
             </div>
             <div className="flex-grow pt-1 w-full">
